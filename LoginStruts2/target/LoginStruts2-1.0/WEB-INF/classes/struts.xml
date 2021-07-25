@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+definimos el curso de struts sin convergencia
+-->
+<!DOCTYPE struts PUBLIC
+
+"-//Apache Software Foundation//DTD Struts Configuration 2.2//EN"
+"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    
+<!-- indica accion por default paguina a ejecutar-->
+<package name="default" extends="struts-default">
+   <!-- indica pagina a ejecutar-->
+    <action name="login">
+        <result>/WEB-INF/content/login.jsp</result> 
+    </action>
+    
+    <!-- valida el controlador para definir el resultao, dar acceso o regresar a login-->
+    <action name="validarUsuario" class="beans.actions.LoginAction">
+        <result name="success">/WEB-INF/content/bienvenido.jsp</result>
+        <result name="input" type="redirectAction">login</result>
+    </action>
+    
+    
+</package>
+
+</struts>
